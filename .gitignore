@@ -6,3 +6,7 @@ __pycache__/
 # Node
 frontend/node_modules/
 dist/
+
+# local DB
+backend/tasks.db
+backend/tasks.db
