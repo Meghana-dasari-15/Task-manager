@@ -173,3 +173,72 @@ input:checked + .slider:before {
 .task-actions button:hover {
   opacity: 0.85;
 }
+/* ---------- Mobile Responsive fixes (paste at end of index.css) ---------- */
+
+/* prevent input overflow on small screens */
+.task-form input {
+  flex: 1;
+  min-width: 0; /* important to stop inputs from overflowing container on mobile */
+}
+
+/* make action buttons share row space and not overflow */
+.task-actions button {
+  flex: 1;
+  margin: 4px;
+  min-width: 0;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 600px) {
+  /* stack the form fields vertically */
+  .task-form {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .task-form input,
+  .task-form button {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+
+  /* make each task item stack vertically */
+  .task-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  /* actions row: switch + status + buttons in two rows for clarity */
+  .task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ensure switch + status stay together and buttons below or to the right */
+  .task-actions > label.switch,
+  .task-actions > span,
+  .task-actions > button {
+    flex: 1 1 auto;
+  }
+
+  /* make buttons slightly smaller font on tiny screens */
+  .task-actions button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  /* ensure title/description do not overflow */
+  .title, .desc {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ---------- End mobile fixes ---------- */
